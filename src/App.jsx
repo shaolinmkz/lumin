@@ -1,9 +1,6 @@
+import React from "react";
+import Page from "./page";
 
-
-const App = () => (
-    <div>
-      <p>lumin</p>
-    </div>
-  );
+const App = () => <Page />;
 
 export default App;

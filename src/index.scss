@@ -1,9 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Noto+Serif:wght@400;700&display=swap");
 
 /*------ Global color variables ------*/
 :root {
   --primary: #4b5648;
   --secondary: #e2e7e3;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 /*------ Reset ------*/
@@ -13,13 +16,14 @@
   padding: 0;
   border: none;
   outline: none;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Noto Serif", serif;
   list-style: none;
+  text-decoration: none;
 }
 
 html {
   font-size: 12pt;
-  width: 100vw;
+  width: 100%;
 }
 
 h1 {
@@ -46,8 +50,11 @@ h6 {
   font-size: 1rem;
 }
 
-p, span {
+p,
+span,
+select {
   font-size: 1rem;
+  font-family: "Lato", sans-serif;
 }
 
 body {
@@ -55,4 +62,195 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--secondary);
   min-width: 320px;
+}
+
+.app {
+  position: relative;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+a,
+button {
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.app-wrapper {
+  padding-top: 65px;
+}
+
+.cart-slider-modal {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+
+  aside.cart-slider {
+    --slider-width: calc(100% / 2);
+    width: var(--slider-width);
+    min-width: 300px;
+    padding: 30px;
+    background: var(--secondary);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    box-sizing: border-box;
+    animation: slideInCart 0.3s linear;
+    -webkit-animation: slideInCart 0.3s linear;
+
+    @media (max-width: 768px) {
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 450px) {
+      padding: 30px 10px;
+    }
+
+    .back-btn-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 20px;
+
+      button {
+        background: none;
+        width: 30px;
+        height: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 40%;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+
+        &:hover {
+          border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        svg {
+          color: var(--primary);
+        }
+      }
+
+      span {
+        font-size: 0.8rem;
+        color: var(--primary);
+      }
+    }
+
+    .custom-select {
+      background: var(--white);
+      padding: 5px;
+      width: 70px;
+      margin-bottom: 20px;
+      border-radius: 1px;
+      -webkit-border-radius: 1px;
+      -moz-border-radius: 1px;
+      -ms-border-radius: 1px;
+      -o-border-radius: 1px;
+
+      select {
+        width: 100%;
+      }
+    }
+
+    .cart-scrollview {
+      height: 450px;
+      width: 100%;
+      overflow: auto;
+
+      .empty-cart {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 60%;
+          object-fit: contain;
+        }
+
+        p {
+          margin-top: 20px;
+          color: var(--primary);
+        }
+      }
+    }
+
+    .checkouts {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid var(--primary);
+      width: 90%;
+      position: absolute;
+      bottom: 0;
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        > p {
+          color: var(--primary);
+          font-weight: bold;
+        }
+      }
+
+      button {
+        padding: 20px;
+        margin: 10px 0;
+        border: 1px solid var(--primary);
+        width: 100%;
+      }
+
+      & > button.subscribe-discount {
+        color: var(--primary);
+        background: var(--white);
+      }
+
+      & > button.cart-proceed {
+        background: var(--primary);
+        color: var(--white);
+      }
+    }
+  }
+
+  @keyframes slideInCart {
+    from {
+      transform: translateX(200px);
+      -webkit-transform: translateX(200px);
+      -moz-transform: translateX(200px);
+      -ms-transform: translateX(200px);
+      -o-transform: translateX(200px);
+    }
+
+    to {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+    }
+  }
 }

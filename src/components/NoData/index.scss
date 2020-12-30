@@ -1,0 +1,23 @@
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  > section {
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: bold;
+      width: 100%;
+    }
+  }
+}

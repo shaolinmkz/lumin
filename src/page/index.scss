@@ -1,0 +1,49 @@
+.app-wrapper {
+
+  .section-one,
+  .section-two {
+    padding: 80px 100px;
+
+    @media (max-width: 767px) {
+      padding: 50px;
+    }
+
+    @media (max-width: 450px) {
+      padding: 50px 50px;
+    }
+  }
+
+  .section-one {
+    background: var(--white);
+
+    h4 {
+      font-weight: 100;
+      color: var(--primary);
+    }
+
+    p {
+      font-weight: 100;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+  }
+
+  .section-two {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 100px;
+    width: 100%;
+    padding-bottom: 100px;
+
+    @media (max-width: 767px) {
+      grid-template-columns: auto auto;
+      gap: 50px;
+    }
+
+    @media (max-width: 450px) {
+      grid-template-columns: auto;
+    }
+  }
+}

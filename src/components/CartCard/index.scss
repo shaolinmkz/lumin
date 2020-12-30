@@ -1,0 +1,92 @@
+.cart-card {
+  position: relative;
+  background: var(--white);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  button.remove-item {
+    position: absolute;
+    background: none;
+    color: var(--primary);
+    font-size: 1.3rem;
+    right: 15px;
+    top: 5px;
+    font-weight: bold;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  > p {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-top: 5px;
+
+    @media (max-width: 550px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  .img-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 50px;
+
+      @media (max-width: 768px) {
+        width: 30px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .increment-controller {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 550px) {
+      justify-content: space-between;
+    }
+
+    > div {
+      width: 80px;
+      padding: 3px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: calc(50% - 100px);
+
+      @media (max-width: 550px) {
+        width: 70px;
+        margin-right: 0;
+      }
+
+      button {
+        background: none;
+        font-size: 1.3rem;
+        color: var(--primary);
+
+        &:hover {
+          font-weight: bold;
+        }
+      }
+
+      span {
+        font-size: 0.9rem;
+        color: var(--primary);
+      }
+    }
+
+    > p {
+      color: var(--primary);
+    }
+  }
+}
