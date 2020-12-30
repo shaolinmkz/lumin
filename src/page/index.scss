@@ -3,13 +3,14 @@
   .section-one,
   .section-two {
     padding: 80px 100px;
+    width: 100%;
 
     @media (max-width: 767px) {
       padding: 50px;
     }
 
     @media (max-width: 450px) {
-      padding: 50px 50px;
+      padding: 50px 20px;
     }
   }
 
@@ -19,6 +20,14 @@
     h4 {
       font-weight: 100;
       color: var(--primary);
+
+      @media (max-width: 767px) {
+       font-size: 2.5rem;
+      }
+
+      @media (max-width: 500px) {
+       font-size: 1.5rem;
+      }
     }
 
     p {
@@ -32,18 +41,18 @@
 
   .section-two {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: minmax(50px, 250px) minmax(50px, 250px) minmax(50px, 250px);
+    justify-content: space-around;
     gap: 100px;
     width: 100%;
     padding-bottom: 100px;
 
-    @media (max-width: 767px) {
-      grid-template-columns: auto auto;
+    @media (max-width: 1200px) {
       gap: 50px;
     }
 
-    @media (max-width: 450px) {
-      grid-template-columns: auto;
+    @media (max-width: 767px) {
+      grid-template-columns: minmax(50px, 250px) minmax(50px, 250px);
     }
   }
 }

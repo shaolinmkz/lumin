@@ -55,11 +55,19 @@ header {
           -o-transition: ease 0.3s all;
         }
 
+        @mixin hoverActiveCart {
+          right: -20px;
+          color: var(--secondary);
+          background: var(--primary);
+        }
+
+        .active-cart {
+          @include hoverActiveCart
+        }
+
         &:hover {
           .cart-size {
-            right: -20px;
-            color: var(--secondary);
-            background: var(--primary);
+            @include hoverActiveCart
           }
         }
       }

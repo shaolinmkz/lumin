@@ -7,6 +7,7 @@
   --secondary: #e2e7e3;
   --white: #ffffff;
   --black: #000000;
+  --shadow: #0000004d;
 }
 
 /*------ Reset ------*/
@@ -21,9 +22,31 @@
   text-decoration: none;
 }
 
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px var(--shadow);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
 html {
   font-size: 12pt;
-  width: 100%;
 }
 
 h1 {
@@ -85,6 +108,10 @@ button {
 
 .app-wrapper {
   padding-top: 65px;
+
+  @media (max-width: 550px) {
+    padding-top: 55px;
+  }
 }
 
 .cart-slider-modal {
@@ -177,6 +204,18 @@ button {
       width: 100%;
       overflow: auto;
 
+      @media (max-width: 450px) {
+        height: 350px;
+        width: 100%;
+        overflow: auto;
+      }
+
+      @media (max-width: 400px) {
+        height: 250px;
+        width: 100%;
+        overflow: auto;
+      }
+
       .empty-cart {
         width: 100%;
         height: 100%;
@@ -204,6 +243,12 @@ button {
       width: 90%;
       position: absolute;
       bottom: 0;
+
+      @media (max-width: 400px) {
+        width: 100%;
+        position: initial;
+        bottom: initial;
+      }
 
       > div {
         display: flex;

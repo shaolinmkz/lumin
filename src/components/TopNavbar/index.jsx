@@ -3,6 +3,8 @@ import { number } from "prop-types";
 import { ReactComponent as CartIcon } from "../../assets/cart.svg";
 import "./index.scss";
 
+const generateSpace = (num) => '* '.repeat(num).split(' ').map((val, index) => <React.Fragment key={index}>&nbsp;</React.Fragment>);
+
 /**
  * @function TonNavbar
  * @description The top navigation bar component
@@ -13,15 +15,24 @@ const TopNavbar = ({ totalItemInCart, handleCartModal }) => (
       <ul>
         <li key="1">
           <a href={window.location.href}>
-            L&nbsp; &nbsp; &nbsp;U&nbsp; &nbsp; &nbsp;M&nbsp; &nbsp;
-            &nbsp;I&nbsp; &nbsp; &nbsp;N
+            L{generateSpace(3)}
+            U{generateSpace(3)}
+            M{generateSpace(3)}
+            I{generateSpace(3)}
+            N
           </a>
         </li>
 
         <li key="2">
           <button type="button" onClick={handleCartModal}>
             <CartIcon />
-            <span className="cart-size">{totalItemInCart}</span>
+            <span
+              className={`cart-size ${
+                totalItemInCart > 0 ? "active-cart" : ""
+              }`}
+            >
+              {totalItemInCart}
+            </span>
           </button>
         </li>
       </ul>
@@ -30,11 +41,11 @@ const TopNavbar = ({ totalItemInCart, handleCartModal }) => (
 );
 
 TopNavbar.propTypes = {
-  totalItemInCart: number
+  totalItemInCart: number,
 };
 
 TopNavbar.defaultProps = {
-  totalItemInCart: 0
-}
+  totalItemInCart: 0,
+};
 
 export default TopNavbar;
