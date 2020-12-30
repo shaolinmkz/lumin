@@ -75,7 +75,7 @@ const Hero = () => {
 
     const newCartEntry = {
       ...selectedProduct,
-      count: 1,
+      quantity: 1,
       subAmount: selectedProduct.price,
     };
 
@@ -93,13 +93,13 @@ const Hero = () => {
         return {
           ...prevState,
           cart: prevState.cart.map((item) => {
-            const count = item.count + 1;
+            const quantity = item.quantity + 1;
 
             return `${item.id}` === `${id}`
               ? {
                   ...item,
-                  count,
-                  subAmount: count * item.price,
+                  quantity,
+                  subAmount: quantity * item.price,
                 }
               : item;
           }),
@@ -122,13 +122,13 @@ const Hero = () => {
     setState((prevState) => ({
       ...prevState,
       cart: prevState.cart.map((item) => {
-        const count = value === "+" ? item.count + 1 : item.count - 1;
+        const quantity = value === "+" ? item.quantity + 1 : item.quantity - 1;
 
         return `${item.id}` === `${id}`
           ? {
               ...item,
-              count,
-              subAmount: count * item.price,
+              quantity,
+              subAmount: quantity * item.price,
             }
           : item;
       }),
@@ -158,7 +158,7 @@ const Hero = () => {
           return {
             ...cartData,
             price: presentCartItem.price,
-            subAmount: cartData.count *  presentCartItem.price,
+            subAmount: cartData.quantity *  presentCartItem.price,
           }
         })
       }));

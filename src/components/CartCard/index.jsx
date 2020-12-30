@@ -36,7 +36,7 @@ const CartCard = ({
     <section className="increment-controller">
       <div>
         <button
-          disabled={cartData.count === 1}
+          disabled={cartData.quantity === 1}
           type="button"
           id={cartData.id}
           value="-"
@@ -44,7 +44,7 @@ const CartCard = ({
         >
           -
         </button>
-        <span>{cartData.count}</span>
+        <span>{cartData.quantity}</span>
         <button
           type="button"
           id={cartData.id}
