@@ -1,5 +1,4 @@
 .app-wrapper {
-
   .section-one,
   .section-two {
     padding: 80px 100px;
@@ -22,11 +21,11 @@
       color: var(--primary);
 
       @media (max-width: 767px) {
-       font-size: 2.5rem;
+        font-size: 2.5rem;
       }
 
       @media (max-width: 500px) {
-       font-size: 1.5rem;
+        font-size: 1.5rem;
       }
     }
 
@@ -41,7 +40,10 @@
 
   .section-two {
     display: grid;
-    grid-template-columns: minmax(50px, 250px) minmax(50px, 250px) minmax(50px, 250px);
+    grid-template-columns: minmax(50px, 250px) minmax(50px, 250px) minmax(
+        50px,
+        250px
+      );
     justify-content: space-around;
     gap: 100px;
     width: 100%;

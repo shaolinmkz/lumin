@@ -153,14 +153,16 @@ const Hero = () => {
       setState((prevState) => ({
         ...prevState,
         products: productsResponse.products,
-        cart: prevState.cart.map(cartData => {
-          const presentCartItem = productsResponse.products.find(({ id }) => `${id}` === `${cartData.id}`)
+        cart: prevState.cart.map((cartData) => {
+          const presentCartItem = productsResponse.products.find(
+            ({ id }) => `${id}` === `${cartData.id}`
+          );
           return {
             ...cartData,
             price: presentCartItem.price,
-            subAmount: cartData.quantity *  presentCartItem.price,
-          }
-        })
+            subAmount: cartData.quantity * presentCartItem.price,
+          };
+        }),
       }));
 
       handleSubtotal();
@@ -207,12 +209,18 @@ const Hero = () => {
               ))}
             </section>
           </div>
+
+          {/* {Modal cart slider} */}
           {openCart && (
-            <div className="cart-slider-modal" id="cart-slider-modal" onClick={({ target: { id }}) => {
-              if(id === 'cart-slider-modal') {
-                handleCartModal();
-              }
-            }}>
+            <div
+              className="cart-slider-modal"
+              id="cart-slider-modal"
+              onClick={({ target: { id } }) => {
+                if (id === "cart-slider-modal") {
+                  handleCartModal();
+                }
+              }}
+            >
               <aside className="cart-slider">
                 <div className="back-btn-container">
                   <button type="button" onClick={handleCartModal}>
