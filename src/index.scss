@@ -78,6 +78,7 @@ span,
 select {
   font-size: 1rem;
   font-family: "Lato", sans-serif;
+  background: none;
 }
 
 body {
@@ -129,6 +130,7 @@ button {
     --slider-width: calc(100% / 2);
     width: var(--slider-width);
     min-width: 300px;
+    max-width: 500px;
     padding: 30px;
     background: var(--secondary);
     height: 100%;
@@ -225,7 +227,7 @@ button {
         justify-content: center;
 
         img {
-          width: 60%;
+          width: 50%;
           object-fit: contain;
         }
 
@@ -267,6 +269,13 @@ button {
         margin: 10px 0;
         border: 1px solid var(--primary);
         width: 100%;
+
+        @media screen and (max-width: 450px) {
+          font-size: 0.7rem;
+          // white-space: nowrap;
+          // text-overflow: ellipsis;
+          // overflow: hidden;
+        }
       }
 
       & > button.subscribe-discount {
